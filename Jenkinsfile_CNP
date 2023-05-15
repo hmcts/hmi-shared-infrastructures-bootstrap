@@ -3,5 +3,6 @@
 @Library("Infrastructure") _
 
 def product = "hmi"
+def component = "bootstrap"
 
-withInfraPipeline(product) {}
+withInfraPipeline(product, component) {}
