@@ -1,1 +1,1 @@
-# hmi-shared-infrastructures-bootstap
+# hmi-shared-infrastructures-bootstrap
