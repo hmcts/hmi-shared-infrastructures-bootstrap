@@ -4,13 +4,14 @@ import groovy.json.JsonSlurper
 @Library('Infrastructure') _
 
 properties([
-    parameters([
-        string(name: 'PRODUCT_NAME', defaultValue: 'hmi', description: '')
-    ])
+        parameters([
+                string(name: 'PRODUCT_NAME', defaultValue: 'hmi', description: ''),
+                string(name: 'COMPONENT', defaultValue: 'bootstrap', description: '')
+        ])
 ])
 
 def expiresAfter = "3000-01-01"
 
-withParameterizedInfraPipeline(params.PRODUCT_NAME, 'sbox', 'sbox', 'bootstrap') {
+withParameterizedInfraPipeline(params.PRODUCT_NAME, 'sbox', 'sbox', params.COMPONENT) {
     expires(expiresAfter)
 }
