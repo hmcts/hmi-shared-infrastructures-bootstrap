@@ -3,8 +3,8 @@ locals {
 }
 
 data "azurerm_user_assigned_identity" "hmi-mi" {
- name                = "${var.product}-${var.env}-mi"
- resource_group_name = "managed-identities-${var.env}-rg"
+  name                = "${var.product}-${var.env}-mi"
+  resource_group_name = "managed-identities-${var.env}-rg"
 }
 
 module "kv_hmi" {
