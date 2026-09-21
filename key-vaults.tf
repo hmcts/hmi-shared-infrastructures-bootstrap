@@ -12,10 +12,11 @@ module "kv_hmi" {
   name                        = local.key_vault_name
   product                     = var.product
   env                         = var.env
-  jenkins_object_id           = var.jenkins_identity_object_id
+  object_id                   = var.jenkins_identity_object_id
   resource_group_name         = resource.azurerm_resource_group.rg.name
   product_group_name          = var.active_directory_group
   common_tags                 = var.common_tags
   create_managed_identity     = false
   managed_identity_object_ids = [data.azurerm_user_assigned_identity.hmi-mi.principal_id]
+  jenkins_object_id           = data.azurerm_user_assigned_identity.jenkins.principal_id
 }
