@@ -7,6 +7,11 @@ data "azurerm_user_assigned_identity" "hmi-mi" {
   resource_group_name = "managed-identities-${var.env}-rg"
 }
 
+data "azurerm_user_assigned_identity" "jenkins" {
+  name                = "jenkins-${var.env}-mi"
+  resource_group_name = "managed-identities-${var.env}-rg"
+}
+
 module "kv_hmi" {
   source                      = "git@github.com:hmcts/cnp-module-key-vault?ref=DTSPO-31965/remove-jenkins-ptl-access"
   name                        = local.key_vault_name
